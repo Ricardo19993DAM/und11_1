@@ -119,8 +119,18 @@ public class Principal {
 		//ListIterator
 		ListIterator<Alumno>al=alumnos.listIterator();
 		while(al.hasNext()) {
-			if(al.next().getDni().equalsIgnoreCase(auxDni)) {
-				al.remove();
+			Alumno aux=al.next();
+			if(aux.getDni().equalsIgnoreCase(auxDni)) {
+				System.out.println(aux.getNombre()+" "+aux.getApellido()+" "+aux.getClasificacion());
+				System.out.println("Quieres borrarlo? (S/N)");
+				char opc=Util.respCharList("SN");
+				if(opc=='S') {
+					al.remove();
+					System.out.println("Alumno eliminado");
+				}else {
+					System.out.println("Alumno salvado");
+				}
+				
 			}
 		}
 
